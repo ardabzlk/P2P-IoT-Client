@@ -13,19 +13,19 @@
     </v-app-bar>
 
     <v-main>
-      <HelloWorld/>
+      <DashboardPage/>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import DashboardPage from './components/DashboardPage.vue';
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
+    DashboardPage,
   },
 
   data: () => ({
