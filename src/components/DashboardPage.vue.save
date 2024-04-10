@@ -63,10 +63,10 @@ export default {
         }
       },
       chartOptionsCO2: 
-        {
+ s       {
           chart: {
             height: 350,
-            type: 'line',
+s            type: 'line',
           },
           title: {
             text: 'CO2',
@@ -158,7 +158,7 @@ export default {
   methods: {
     getWeatherData() {
       // Make an Axios GET request to fetch weather data
-      axios.get('http://35.203.60.205/api/weather-stats')
+      axios.get('http://35.203.60.205/weather-stats')
         .then(response => {
           // Update the weatherData array with the fetched data
           const data = response.data.data;
