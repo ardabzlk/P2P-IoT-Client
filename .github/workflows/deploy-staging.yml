@@ -19,6 +19,7 @@ jobs:
         username: ${{ secrets.USERNAME }}
         port: ${{ secrets.PORT }}
         key: ${{ secrets.SSHKEY }}
+        passphrase: ${{ secrets.PASSPHRASE }}
         source: "."
         target: ${{ secrets.TARGET }}
 
@@ -28,7 +29,7 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         port: ${{ secrets.PORT }}
-        passphrase: ${{ secrets.PASSPHRASE }}s
+        passphrase: ${{ secrets.PASSPHRASE }}
         key: ${{ secrets.SSHKEY }}
         script: |
               whoami
