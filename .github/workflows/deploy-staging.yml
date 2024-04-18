@@ -3,7 +3,7 @@ name: SSH Deploy
 on:
   push:
     branches:
-      - main  # Adjust this to match your main branch name
+      - deployment  # Adjust this to match your main branch name
 
 jobs:
   deploy:
