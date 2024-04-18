@@ -31,6 +31,6 @@ jobs:
         passphrase: ${{ secrets.PASSPHRASE }}s
         key: ${{ secrets.SSHKEY }}
         script: |
-              cd ${{secrets.TARGET}} && npm install
+              cd ${{secrets.TARGET}} && sudo npm install
               printf "%s" > "${{secrets.TARGET}}/.env.staging"
-              npm run build
+              sudo npm run build
