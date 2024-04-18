@@ -1,36 +1,32 @@
-name: Deploy to Staging
+name: SSH Deploy
 
-on: 
+on:
   push:
     branches:
-      - deployment
-jobs:
-  build:
+      - main  # Adjust this to match your main branch name
 
+jobs:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Copy repository contents to remote server via scp
-      uses: appleboy/scp-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        port: ${{ secrets.PORT }}
-        key: ${{ secrets.SSHKEY }}
-        source: "."
-        target: ${{ secrets.TARGET }}
+      - name: Install SSH key
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SSHKEY }}
+          ssh-known-hosts: ${{ secrets.KNOWN_HOSTS }}
 
-    - name: Executing remote command via ssh
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        port: ${{ secrets.PORT }}
-        passphrase: ${{ secrets.PASSPHRASE }}s
-        key: ${{ secrets.SSHKEY }}
-        script: |
-              cd ${{secrets.TARGET}}
-              sudo npm install
-              sudo npm run build
+      - name: SSH to remote machine and run commands
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          port: ${{ secrets.PORT }}
+          passphrase: ${{ secrets.PASSPHRASE }}
+          script: |
+            cd ${{ secrets.TARGET }}
+            sudo npm run install
+            sudo npm run build
