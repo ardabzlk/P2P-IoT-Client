@@ -17,6 +17,8 @@ FROM nginx:stable-alpine as production-stage
 
 COPY --from=build-stage /app/dist /usr/share/nginx/html
 
+# Copy the nginx configuration file
+COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
 # to reache the application from the outside world, we need to expose the port 80
 EXPOSE 80
 # the following command will start the nginx server
