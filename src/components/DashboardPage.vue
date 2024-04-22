@@ -18,7 +18,7 @@
         <ApexChart ref="TVOCSChart" type="line" height="350" :options="chartOptionsTVOCS" :series="seriesTVOCS">
         </ApexChart>
       </v-col>
-      <!-- <v-col cols="12">
+      <v-col cols="12">
         <ApexChart ref="temperatureChart" type="line" height="350" :options="chartOptionsTemperature"
           :series="seriesTemperature"></ApexChart>
       </v-col>
@@ -26,7 +26,7 @@
       <v-col cols="12">
         <ApexChart ref="humidityChart" type="line" height="350" :options="chartOptionsHumidity"
           :series="seriesHumidity"></ApexChart>
-      </v-col> -->
+      </v-col>
     </v-row>
   </v-container>
 </template>
