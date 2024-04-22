@@ -17,7 +17,7 @@ services:
     ports:
       - 80:80
     depends_on:
-      - app
+      - vue
 
 networks:
   app_network:
