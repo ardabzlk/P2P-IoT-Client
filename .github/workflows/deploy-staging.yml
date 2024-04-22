@@ -40,18 +40,8 @@ jobs:
           port: ${{ secrets.PORT }}
           passphrase: ${{ secrets.PASSPHRASE }}
           key: ${{ secrets.SSHKEY }}
-          source: "docker-compose.yml"
-          target: "/home/arda_bozlak/P2P-IoT-Client/docker-compose.yml"
 
-      - name: SSH into server and start Docker Compose
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          port: ${{ secrets.PORT }}
-          passphrase: ${{ secrets.PASSPHRASE }}
-          key: ${{ secrets.SSHKEY }}
-          script: |
-            cd /home/arda_bozlak/P2P-IoT-Client
-            docker-compose pull
-            docker-compose up -d
+          script: 
+            sudo cd /home/arda_bozlak/P2P-IoT-Client
+            sudo docker-compose pull
+            sudo docker-compose up -d
