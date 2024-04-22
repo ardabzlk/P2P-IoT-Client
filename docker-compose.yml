@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  vue:
+    image: ardabzlk/p2p-vue:latest
+    ports:
+      - "8080:80"
+    restart: always
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge
+  mongo-network:
+    driver: bridge
+    external: false
