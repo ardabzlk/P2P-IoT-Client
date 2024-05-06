@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - deployment
+      - presentation
 jobs:
   build:
 
