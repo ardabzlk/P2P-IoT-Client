@@ -5,6 +5,7 @@
         <v-btn icon @click="getWeatherData"><v-icon class="mdi mdi-refresh" color="primary"
             size="48px">mdi-refresh</v-icon>
         </v-btn>
+         <p> Hello CI/CD </p>
       </v-col>
 
       <v-col cols="12">
